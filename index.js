@@ -1,68 +1,113 @@
 module.exports = {
-    extends: [
-      'airbnb-base',
-      'plugin:@typescript-eslint/eslint-recommended',
-      'plugin:@typescript-eslint/recommended',
-      'plugin:vue/recommended',
-      'prettier',
-      'prettier/vue',
+  env: {
+    node: true,
+  },
+  globals: {
+    $: 'readonly',
+    $$: 'readonly',
+    $ref: 'readonly',
+    $shallowRef: 'readonly',
+    $computed: 'readonly',
+    Fn: 'readonly',
+    PromiseFn: 'readonly',
+    RefType: 'readonly',
+    LabelValueOptions: 'readonly',
+    EmitType: 'readonly',
+    TargetContext: 'readonly',
+    ComponentElRef: 'readonly',
+    ComponentRef: 'readonly',
+    ElRef: 'readonly',
+    global: 'readonly',
+    ForDataType: 'readonly',
+    ComponentRoutes: 'readonly',
+    defineProps: 'readonly',
+    defineEmits: 'readonly',
+    defineExpose: 'readonly',
+    withDefaults: 'readonly',
+  },
+  extends: [
+    'plugin:vue/vue3-essential',
+    'eslint:recommended',
+    '@vue/typescript/recommended',
+    '@vue/prettier',
+    '@vue/eslint-config-typescript',
+  ],
+  parser: 'vue-eslint-parser',
+  parserOptions: {
+    parser: '@typescript-eslint/parser',
+    ecmaVersion: 2020,
+    sourceType: 'module',
+    jsxPragma: 'React',
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
+  overrides: [
+    {
+      files: ['*.ts', '*.vue'],
+      rules: {
+        'no-undef': 'off',
+      },
+    },
+    {
+      files: ['*.vue'],
+      parser: 'vue-eslint-parser',
+      parserOptions: {
+        parser: '@typescript-eslint/parser',
+        extraFileExtensions: ['.vue'],
+        ecmaVersion: 'latest',
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+      rules: {
+        'no-undef': 'off',
+      },
+    },
+  ],
+  rules: {
+    'vue/no-v-html': 'off',
+    'vue/require-default-prop': 'off',
+    'vue/require-explicit-emits': 'off',
+    'vue/multi-word-component-names': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    'no-debugger': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/ban-types': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    'vue/html-self-closing': [
+      'error',
+      {
+        html: {
+          void: 'always',
+          normal: 'always',
+          component: 'always',
+        },
+        svg: 'always',
+        math: 'always',
+      },
     ],
-  
-    parserOptions: {
-      parser: '@typescript-eslint/parser',
-      ecmaVersion: 2019,
-      sourceType: 'module',
-      extraFileExtensions: ['.vue'],
-    },
-  
-    plugins: ['@typescript-eslint'],
-  
-    env: {
-      es6: true,
-      node: true,
-      jest: true,
-      browser: true,
-    },
-  
-    rules: {
-      'no-new': 'off',
-      'no-shadow': 'off',
-      'no-bitwise': 'off',
-      'func-names': 'off',
-      'no-console': 'off',
-      'no-plusplus': 'off',
-      'default-case': 'off',
-      'prefer-template': 'off',
-      'consistent-return': 'off',
-      'no-param-reassign': 'off',
-      'no-nested-ternary': 'off',
-      'no-underscore-dangle': 'off',
-      'no-unused-expressions': 'off',
-      'no-restricted-globals': 'off',
-      'class-methods-use-this': 'off',
-      'prefer-destructuring': ['error', { object: true, array: false }],
-      // eslint-plugin-import
-      'import/order': 'off',
-      'import/extensions': 'off',
-      'import/no-unresolved': 'off',
-      'import/prefer-default-export': 'off',
-      'import/no-extraneous-dependencies': 'off',
-      // eslint-plugin-vue
-      'vue/no-v-html': 'off',
-      'vue/attributes-order': 'off',
-      'vue/require-v-for-key': 'off',
-      'vue/require-default-prop': 'off',
-      'vue/no-unused-components': 'off',
-      'vue/name-property-casing': ['error', 'kebab-case'],
-      'vue/component-name-in-template-casing': ['error', 'kebab-case'],
-      // typescript-eslint
-      '@typescript-eslint/camelcase': 'off',
-      '@typescript-eslint/ban-ts-ignore': 'off',
-      '@typescript-eslint/no-unused-vars': 'error',
-      '@typescript-eslint/no-var-requires': 'off',
-      '@typescript-eslint/no-explicit-any': 'off',
-      '@typescript-eslint/no-empty-function': 'off',
-      '@typescript-eslint/no-non-null-assertion': 'off',
-      '@typescript-eslint/explicit-function-return-type': 'off',
-    },
-  };
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+      },
+    ],
+    'no-unused-vars': [
+      'error',
+      {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+      },
+    ],
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
+  },
+};

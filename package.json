@@ -1,7 +1,7 @@
 {
     "name": "@zebra-ui/eslint-config",
     "version": "1.0.3",
-    "description": "",
+    "description": "eslint config for zebra ui",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,18 +15,15 @@
     "publishConfig": {
         "access": "public"
     },
-    "peerDependencies": {
-        "eslint": "^6.0.0"
-    },
-    "dependencies": {
-        "@typescript-eslint/eslint-plugin": "^2.28.0",
-        "@typescript-eslint/parser": "^2.28.0",
-        "eslint-config-airbnb-base": "^14.1.0",
-        "eslint-config-prettier": "^6.10.1",
-        "eslint-plugin-import": "^2.20.2",
-        "eslint-plugin-vue": "^6.2.2"
-    },
+    "dependencies": {},
     "devDependencies": {
-        "eslint": "^6.8.0"
+        "@typescript-eslint/eslint-plugin": "^5.60.1",
+        "@typescript-eslint/parser": "^5.60.1",
+        "@vue/eslint-config-prettier": "^7.1.0",
+        "@vue/eslint-config-typescript": "^11.0.3",
+        "eslint": "^8.42.0",
+        "eslint-plugin-vue": "^9.15.1",
+        "prettier": "^2.8.8",
+        "typescript": "^5.1.6"
     }
 }
